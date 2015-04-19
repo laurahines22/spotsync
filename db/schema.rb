@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150419204902) do
+ActiveRecord::Schema.define(version: 20150419213202) do
 
   create_table "albums", force: :cascade do |t|
     t.integer  "spotify_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20150419204902) do
     t.integer  "order_num"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "user_id"
   end
 
   create_table "playlists", force: :cascade do |t|
