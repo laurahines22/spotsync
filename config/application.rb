@@ -32,3 +32,5 @@ module Spotsync
     config.active_record.raise_in_transactional_callbacks = true
   end
 end
+
+RSpotify::authenticate(ENV['spotify_key'], ENV['spotify_secret'])
