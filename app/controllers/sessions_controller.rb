@@ -1,14 +1,19 @@
 class SessionsController < ApplicationController
+
+  skip_before_action :authenticate_user!, only: [:new, :create]
+
   def new
   end
 
   def create
     @user = User.find_or_create_from_auth_hash(auth_hash)
     login(@user)
-    redirect_to playlists_path
+    redirect_to root_path
   end
 
   def destroy
+    log_out
+    redirect_to root_path
   end
 
   private

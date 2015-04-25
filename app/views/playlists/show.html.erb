@@ -9,5 +9,11 @@
       <% end %>
   </ol>
 <p> Add/remove tracks </p>
+
+<%= form_tag(track_search_path, method: "get") do %>
+<%= text_field_tag(:q) %>
+<%= submit_tag("search") %>
+<% end %>
+
 <p> <%= link_to "edit playlist", edit_playlist_path(@playlist) %></p>
 <p> <%= link_to "delete", playlist_path(@playlist), method: :delete %> </p>

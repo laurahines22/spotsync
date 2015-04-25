@@ -1,10 +1,14 @@
 Rails.application.routes.draw do
 
+  get 'tracks/search', as: "track_search"
+
+  get 'tracks/add_to_playlist'
+
 resources :playlists
 
-  get 'sessions/new'
+  get 'sessions/new', as: "sign_in"
 
-  get 'sessions/destroy'
+  get 'sessions/destroy', as: "sign_out"
 
   get '/auth/spotify/callback', to: 'sessions#create'
   get '/auth/spotify', as: 'spotify'
@@ -13,7 +17,7 @@ resources :playlists
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
-  root 'sessions#new'
+  root 'playlists#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

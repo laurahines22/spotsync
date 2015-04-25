@@ -1,4 +1,4 @@
 class Album < ActiveRecord::Base
   has_many :tracks
-  belongs_to :artist
+  has_many :artists, :through => :tracks
 end
