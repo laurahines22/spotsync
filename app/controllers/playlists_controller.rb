@@ -19,9 +19,17 @@ class PlaylistsController < ApplicationController
   end
 
   def show
+    @playlist = Playlist.find(params["id"])
   end
 
-  def udpate
+  def edit
+    @playlist = Playlist.find(params["id"])
+  end
+
+  def update
+    @playlist = Playlist.find(params["id"])
+    @playlist.update(playlist_params)
+    redirect_to playlist_path(@playlist)
   end
 
   def destroy

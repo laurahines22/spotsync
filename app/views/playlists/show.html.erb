@@ -1,2 +1,13 @@
 <h1>Playlists#show</h1>
 <p>Find me in app/views/playlists/show.html.erb</p>
+
+<p><%= @playlist.name %> </p>
+<p> TRACKS </p>
+  <ol> 
+      <%@playlist.tracks.each do |track| %>
+      <li><%= track.name %></li>
+      <% end %>
+  </ol>
+<p> Add/remove tracks </p>
+<p> <%= link_to "edit playlist", edit_playlist_path(@playlist) %></p>
+<p> Delete playlist </p>
