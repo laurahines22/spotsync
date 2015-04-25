@@ -10,4 +10,4 @@
   </ol>
 <p> Add/remove tracks </p>
 <p> <%= link_to "edit playlist", edit_playlist_path(@playlist) %></p>
-<p> Delete playlist </p>
+<p> <%= link_to "delete", playlist_path(@playlist), method: :delete %> </p>

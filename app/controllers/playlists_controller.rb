@@ -33,6 +33,9 @@ class PlaylistsController < ApplicationController
   end
 
   def destroy
+    @playlist = Playlist.find(params["id"])
+    @playlist.destroy
+    redirect_to playlists_path
   end
 
   private
