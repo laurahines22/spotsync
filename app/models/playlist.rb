@@ -1,5 +1,5 @@
 class Playlist < ActiveRecord::Base
-  has_many :playlist_tracks
+  has_many :playlist_tracks, :dependent => :destroy
   has_many :tracks, :through => :playlist_tracks
   has_many :contributors
   has_many :users, :through => :contributors

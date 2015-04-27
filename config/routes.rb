@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  delete 'playlist_tracks/:id' => "playlist_tracks#destroy", as: "playlist_tracks"
+
   get 'tracks/search', as: "track_search"
 
   get 'tracks/add_to_playlist'
