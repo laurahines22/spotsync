@@ -28,7 +28,13 @@ class PlaylistsController < ApplicationController
   end
 
   def update
-    @playlist.update(playlist_params)
+    if playlist_params.include?(:name)
+      @playlist.update(playlist_params)
+    else
+      @track = Track.find(playlist_params["track_ids"])
+      @playlist_track = @playlist.add_track(@track, current_user)
+      @playlist_track.save
+    end
     redirect_to playlist_path(@playlist)
   end
 
@@ -39,7 +45,7 @@ class PlaylistsController < ApplicationController
 
   private
   def playlist_params
-    params.require(:playlist).permit(:name)
+    params.require(:playlist).permit(:name, :track_ids)
   end
 
   def find_playlist

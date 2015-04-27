@@ -11,6 +11,7 @@
 <p> Add/remove tracks </p>
 
 <%= form_tag(track_search_path, method: "get") do %>
+<%= hidden_field_tag 'playlist_id', @playlist.id %>
 <%= text_field_tag(:q) %>
 <%= submit_tag("search") %>
 <% end %>

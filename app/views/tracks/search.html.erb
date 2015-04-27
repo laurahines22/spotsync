@@ -1,2 +1,16 @@
 <h1>Tracks#search</h1>
 <p>Find me in app/views/tracks/search.html.erb</p>
+
+<%= form_for @playlist do |f|%>
+<%= collection_radio_buttons(:playlist, :track_ids, @search_results, :id, :name ) %>
+<%= f.submit %>
+<% end %>
+
+<%= @playlist.name %>
+<br>
+<% @search_results.each do |track| %>
+<%= track.name %>
+<%= track.artist.name %>
+<%= track.album.name %>
+<br>
+<% end %>
