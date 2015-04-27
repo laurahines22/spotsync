@@ -3,9 +3,10 @@
 
 <p><%= @playlist.name %> </p>
 <p> TRACKS </p>
-  <ol> 
+  <ol>
       <% @playlist.playlist_tracks.each do |playlist_track| %>
       <% track = playlist_track.track %>
+      <%= render 'tracks/play_button', :track => track %>
       <li><%= track.name %></li>
       <%= link_to "delete track",  playlist_tracks_path(playlist_track), method: :delete %>
       <% end %>
