@@ -22,3 +22,5 @@
 <p> <%= link_to "edit playlist", edit_playlist_path(@playlist) %></p>
 <p> <%= link_to "delete", playlist_path(@playlist), method: :delete %> </p>
 
+<!-- if current user is owner then partial playlist who to invite -->
+<%= invitation_form(@playlist) %>

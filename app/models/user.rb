@@ -30,4 +30,8 @@ class User < ActiveRecord::Base
     end
   end
 
+  def self.possible_contributors(playlist)
+    #select all users where the user's ID is not a contributor (playist.users) and is not an owner (playlist.owner)
+    User.where.not(:id => playlist.users + [playlist.owner])
+  end
 end
